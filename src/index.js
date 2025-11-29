@@ -17,4 +17,14 @@ app.post('/ping', (req, res) => {
 app.listen(ServerConfig.PORT, async () => {
     await connectDB();
     console.log(`Server started at port ${ServerConfig.PORT}...!!`);
+ const newUser=await User.create({
+        firstName:"sanjay",
+        lastName:"kumar",
+        mobileNumber:"9876543210",
+        email:"sanjay@example.com",
+        password:"password123"          
 });
+    console.log(newUser);   
+    
+
+})
