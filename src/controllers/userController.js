@@ -1,16 +1,10 @@
-const {model}= require("mongoose");
-const UserService = require("../services/userService");
-const UserRepository = require("../repositories/userRepository");
-
+const { registerUser } = require("../services/userService");
 async function createUser(req,res){
     console.log("Create user Controller called");
     console.log(req.body);
-// todo:regidter the user
-
-const userService = new UserService(new UserRepository());
-
+// todo:regidter 
 try{
-const response = await userService.registerUser(req.body);
+const response = await registerUser(req.body);
 
     return res.json({
     message:"user registered successfully",
@@ -26,12 +20,8 @@ const response = await userService.registerUser(req.body);
         error:error
       });
     }
-
-
-
-
 }
 
 module.exports={
-    createUser
+  createUser
 }

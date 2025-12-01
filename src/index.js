@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 //if your req route starts with /users then handle it using userRouter.
 app.use('/user', userRouter);
 app.use('/cart', cartRouter);
+app.use('/auth', require('./routes/authRoute'));
 
 app.post('/ping', (req, res) => {
     console.log(req.body);
